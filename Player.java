@@ -11,6 +11,7 @@ import java.awt.Graphics;
 public class Player {
     private int x, y; 
     // final means can't change
+    private static final int speed = 4;
     private static final int width = 30, height = 30;
     private static final Color color = Color.ORANGE;
     
@@ -22,10 +23,13 @@ public class Player {
     public void draw(Graphics g) {
         g.setColor(color);
         g.fillRect(x,y,width,height);
+        g.setColor(Color.black);
+        g.drawRect(x, y, width, height);
     }
     
-    public void move() {
-        
+    public void move(int dx, int dy) {
+        x += dx * speed;
+        y += dy * speed;
     }
 
     public int getX() {
